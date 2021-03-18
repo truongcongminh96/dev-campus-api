@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const logger = require('./middleware/logger');
 const morgan = require('morgan');
 const colors = require('colors');
 const connectDB = require('./config/db');
@@ -21,6 +22,8 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
+
+app.use(logger);
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
