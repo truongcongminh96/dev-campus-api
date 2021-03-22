@@ -52,7 +52,7 @@ const deleteData = async () => {
 };
 
 if (process.argv[2] === '-i') {
-  importData();
+  importData().then();
 } else if (process.argv[2] === '-d') {
-  deleteData();
+  deleteData().then();
 }
